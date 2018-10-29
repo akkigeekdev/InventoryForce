@@ -1,0 +1,112 @@
+$desktop-width: 768px;
+$dark-color: #343a40;
+
+h2{padding: 20px 0}
+
+.landing{
+    height: 250px;
+    background-image: url('../../assets/images/landing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -310px 0;
+    position: relative;
+    padding: 0 10px;
+    div{
+        position: absolute;
+        background-color: rgba(0,0,0,0.3);
+        width: calc(100% - 20px);
+        padding: 10px;
+        color: white;
+        bottom: 10px;
+        border-radius: 5px;
+        span{font-size: large; font-weight: 700;}
+        p{font-size: small; margin: 0;}
+    }
+
+    @media (min-width: $desktop-width) {
+        height: 500px;
+        background-position: -100px 0;
+
+        div{
+            width:50%;
+            top: 200px;
+            bottom: auto;
+            span{font-size: 3em; font-weight: 700;}
+            p{font-size: 1.5em; margin: 0;}
+        }
+    }
+    @media (min-width: 1400px) {
+        // height: 600px;
+        background-position: 0 0;
+        div{width:40%}
+    }
+}
+
+.login{
+    background-color: $dark-color;
+    color: white;
+    padding: 15px 0;
+    font-size: 14px;
+    text-align: center;
+
+    .mar{padding-top: 10px;}
+    a{
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+        margin-right: 10px;
+        padding: 7px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        &:hover{
+            background-color: white;
+            color: black;
+            text-decoration: none;
+        }
+    }
+
+    @media (min-width: $desktop-width) {
+        font-size: 20px;
+        text-align: center;
+        padding: 20px 0;
+        .mar{padding-top: 0px;}
+    }
+}
+
+.about, .terms{
+    img{height: 260px}
+    padding: 50px 0;
+}
+.terms{
+    p{padding-top: 10px;}
+    @media (min-width: $desktop-width) {
+        p{padding-top: 50px;}
+    }
+}
+.termscon{
+    ol{
+        font-size: 14px;
+        // border: 2px solid #c3c3c3;
+        padding: 20px 45px;
+        background-color: #ececec;
+        li {
+            padding: 10px 0;
+            text-align: justify;
+        }
+    }
+}
+// .contact{
+//     img{
+//         width: 70%;
+//         border-radius: 10px;
+//     }
+//     form{
+//         padding-top: 20px;
+//     }
+// }
+
+footer{
+    background-color: $dark-color;
+    padding: 20px;
+    color: #fff;
+}

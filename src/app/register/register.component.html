@@ -1,0 +1,113 @@
+<section>
+  <div class="container">
+    <h2 class="text-center">Register</h2>
+
+    <div class="alert alert-danger" role="alert"> All fields are compulsary  </div>
+
+    <form #regform="ngForm" *ngIf="details" (ngSubmit)="register(regform.valid)" class="needs-validation" [class.was-validated]="formValidated" novalidate autocomplete="off">
+      <div class="form-group">
+        <label>IVF centre name</label>
+        <input  type="text" class="form-control" name="name"  [(ngModel)]="details.centreName" pattern="^[a-zA-Z\s]+$" required>
+        <div class="invalid-feedback"> Only letter and spaces allowed </div>
+      </div>
+      <div class="form-group">
+        <label for="txtpan">IVF pan card no.</label>
+        <input type="text" class="form-control" name="pan"  [(ngModel)]="details.panno"  pattern="^[a-zA-Z0-9]+$" required>
+        <div class="invalid-feedback"> Only letter and numbers allowed </div>
+      </div>
+      <div class="form-group">
+        <label for="txtdocname">Main doctor name</label>
+        <input  type="text" class="form-control" name="docname" [(ngModel)]="details.doctorName" pattern="^[a-zA-Z\s]+$" required>
+        <div class="invalid-feedback"> Only letter and spaces allowed </div>
+      </div>
+      <div class="form-group">
+        <label for="txtdocno">Doctor ISAR number</label>
+        <input type="text" class="form-control" name="isar" [(ngModel)]="details.isarNo"  pattern="^[0-9A-Z\-]+$" required placeholder="ex:- MP-136">
+        <div class="invalid-feedback"> Not a valid number </div>
+      </div>
+      <div class="form-group">
+        <label for="txtadd">Address</label>
+        <textarea rows="5"  type="text" class="form-control" name="addr" [(ngModel)]="details.address"  required></textarea>
+        <div class="invalid-feedback"> Enter address </div>
+      </div>
+      <div class="form-group">
+        <label for="txtnum">landline no.</label>
+        <input  type="text" class="form-control" name="landline" [(ngModel)]="details.landline" pattern="^[0-9]+$" required>
+        <div class="invalid-feedback"> Enter numbers only </div>
+      </div>
+      <div class="form-group">
+        <label for="txtemail">Email</label>
+        <input  type="email" class="form-control" name="email" [(ngModel)]="details.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+        <div class="invalid-feedback"> Enter valid email id </div>
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-success" style="padding: 8px 30px;">Register</button>
+        <button class="btn btn-danger" style="padding: 8px 30px;margin-left: 10px;">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<section>
+    <div class="container">
+      <h2 class="text-center">Register</h2>
+  
+      <div class="alert alert-danger" role="alert"> All fields are compulsary  </div>
+  
+      <form #regform="ngForm" *ngIf="details" (ngSubmit)="register(regform)" class="needs-validation was-validated" novalidate autocomplete="off">
+        <div class="form-group">
+          <label>IVF centre name</label>
+          <input id="name" name="name" type="text" class="form-control" #name="ngModel" [(ngModel)]="details.centreName" [class.invalid-input]="name.invalid && !name.pristine" pattern="^[a-zA-Z\s]+$" required>
+          <div class="invalid-feedback"> Only letter and spaces allowed </div>
+        </div>
+        <div class="form-group">
+          <label for="txtpan">IVF pan card no.</label>
+          <input type="email" class="form-control" id="pan" name="pan" #pan="ngModel" [(ngModel)]="details.panno" [class.invalid-input]="pan.invalid && !pan.pristine" pattern="^[a-zA-Z0-9]+$" required>
+          <div class="invalid-feedback"> Only letter and numbers allowed </div>
+        </div>
+        <div class="form-group">
+          <label for="txtdocname">Main doctor name</label>
+          <input id="docname" name="docname" type="text" class="form-control" #docname="ngModel" [(ngModel)]="details.doctorName" [class.invalid-input]="docname.invalid && !docname.pristine" pattern="^[a-zA-Z\s]+$" required>
+          <div class="invalid-feedback"> Only letter and spaces allowed </div>
+        </div>
+        <div class="form-group">
+          <label for="txtdocno">Doctor ISAR number</label>
+          <input id="isar" name="isar" type="text" class="form-control" #isar="ngModel" [(ngModel)]="details.isarNo" [class.invalid-input]="isar.invalid && !isar.pristine" pattern="^[0-9A-Z\-]+$" required placeholder="ex:- MP-136">
+          <div class="invalid-feedback"> Looks good! </div>
+        </div>
+        <div class="form-group">
+          <label for="txtadd">Address</label>
+          <textarea rows="5" id="address" name="address" type="text" class="form-control" #address="ngModel" [(ngModel)]="details.address" [class.invalid-input]="address.invalid && !address.pristine" required></textarea>
+          <div class="invalid-feedback"> Enter address </div>
+        </div>
+        <div class="form-group">
+          <label for="txtnum">landline no.</label>
+          <input id="num" name="num" type="text" class="form-control" #num="ngModel" [(ngModel)]="details.landline" [class.invalid-input]="num.invalid && !num.pristine" pattern="^[0-9]+$" required>
+          <div class="invalid-feedback"> Enter numbers only </div>
+        </div>
+        <div class="form-group">
+          <label for="txtemail">Email</label>
+          <input id="email" name="email" type="text" class="form-control" #email="ngModel" [(ngModel)]="details.email" [class.invalid-input]="email.invalid && !email.pristine" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+          <div class="invalid-feedback"> Enter valid email id </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success" style="padding: 8px 30px;">Register</button>
+          <button class="btn btn-danger" style="padding: 8px 30px;margin-left: 10px;">Cancel</button>
+        </div>
+      </form>
+  
+    </div>
+  </section> -->
+  

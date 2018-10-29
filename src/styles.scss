@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import "~bootstrap/dist/css/bootstrap.css";
+
+$desktop-width: 768px;
+$dark-color: #343a40;
+
+
+html,body{font-family: 'Roboto', sans-serif;margin: 0;padding: 0;}
+
+.contant{
+    background-color: white;
+    box-shadow: 0 3px 3px #d9d9d9;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    .title{
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        display: inline-block;
+        color: #6d6d6d;
+    }
+}
+
+
+input {
+    // &.invalid-input{ border: 2px solid red; }
+    // &.valid-input{ border: 2px solid green; }
+    // &.invalid-input + .invalid-feedback { margin-left: 10px; display: block }
+    
+}
+
+.form-control{
+    &:focus{border-color: #ced4da}
+}

@@ -1,0 +1,35 @@
+$desktop-width: 768px;
+$dark-color: #343a40;
+
+section{
+    height: auto;
+    width: 100vw;
+    background-color: $dark-color;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .container{
+        width:90%;
+        background-color: white;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 20px;
+
+        @media (min-width: $desktop-width) {
+            width:30%;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        label{margin-left: 12px;}
+        .form-control{
+            border-radius: 20px;
+            outline: none;
+            box-shadow: 0 2px 5px #dadada;
+            &:hover{border-color: none}
+        }
+        .btn{border-radius: 50px;box-shadow: 0 2px 5px #dadada;}
+    }
+
+   
+}

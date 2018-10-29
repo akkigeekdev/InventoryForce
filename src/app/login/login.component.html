@@ -1,0 +1,18 @@
+<section>
+  <div class="container">
+    <h2 class="text-center">Login</h2>
+    <form (ngSubmit)="onSubmit()"  #loginForm="ngForm">
+      <div class="form-group">
+        <label for="txtu">User Name</label>
+        <input type="text" class="form-control" id="txtu" name="username" #txtusername [(ngModel)]="username">
+      </div>
+      <div class="form-group">
+        <label for="txtp">Password</label>
+        <input type="password" class="form-control" id="txtp" name="password" #txtpassword [(ngModel)]="password">
+      </div>
+      <div class="form-group text-center">
+        <button class="btn btn-dark" style="padding: 8px 30px;">login</button>
+      </div>
+    </form>
+  </div>
+</section>
