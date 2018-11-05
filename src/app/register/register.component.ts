@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesService } from "../services.service";
 
-class RegisterDetails{
-  centreName:string
-  panno:string
+class Centre{
+  name:string
+  pancard:string
   doctorName:string
   isarNo:string
   address:string
@@ -18,17 +19,22 @@ class RegisterDetails{
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:ServicesService) { }
 
-  details = new RegisterDetails();
-  formValidated = false;
+  details = new Centre();
+  submited = false;
 
   ngOnInit() {}
 
-  register(bool){
-    this.formValidated = true;
+  onSubmit(bool){
+    
+    this.submited = true;
+
     if(bool){
       console.log(this.details)
+      this.api.registerCentre(this.details).subscribe((res)=>{
+        console.log(res)
+      })
     }
   }
 }
