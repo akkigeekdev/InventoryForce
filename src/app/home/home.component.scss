@@ -95,18 +95,69 @@ h2{padding: 20px 0}
         }
     }
 }
-// .contact{
-//     img{
-//         width: 70%;
-//         border-radius: 10px;
-//     }
-//     form{
-//         padding-top: 20px;
-//     }
-// }
 
 footer{
     background-color: $dark-color;
     padding: 20px;
     color: #fff;
+}
+
+
+
+.wrapper{
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh; width: 100vw;
+    background: rgba(0,0,0,0.3);
+    z-index:5; 
+
+    .cont {
+        background-color: white;
+        width: 90%;
+        position: absolute;
+        top: 50px; left:50%;
+        transform: translateX(-50%);
+        padding:20px 30px;
+        border-radius: 5px;
+        width: 400px;
+        max-height: calc(100vh - 80px);
+        overflow: auto;
+
+        .closewin{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            color: #949494;
+            font-weight: 700;
+            text-align: center;
+            font-size: 24px;
+            line-height: 24px;
+            cursor: pointer;
+        }
+
+        .title{
+            padding-bottom: 20px;
+            font-size: large;
+        }
+
+        @media (min-width: $desktop-width) {
+            width: 400px;
+        }
+        .btn{width:100%;}
+
+        .error-field{
+            color: red;
+        }
+    }
+    
+    
+    .logincontainer  .option{
+        font-size: small;
+        a{float: right;}
+    }
+
+    
 }

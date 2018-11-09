@@ -40,6 +40,24 @@
         <input  type="email" class="form-control" name="email" #email="ngModel"  [(ngModel)]="details.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
         <div style="color:red" *ngIf="submited && email.invalid"> Enter valid email id </div>
       </div>
+
+      <div class="form-group">
+        <label>User Name</label>
+        <input  type="text" class="form-control" name="username" #username="ngModel"  [(ngModel)]="logininfo.username" pattern="^[a-zA-Z\s]+$" required>
+        <div style="color:red" *ngIf="submited && username.invalid"> Only letter and number is allowed </div>
+      </div>
+      <div class="form-group">
+        <label >Password</label>
+        <input  type="password" class="form-control" name="pass" #pass="ngModel"  [(ngModel)]="logininfo.password"  required>
+        <div style="color:red" *ngIf="submited && pass.invalid"> Enter valid email id </div>
+      </div>
+      <div class="form-group">
+        <label >Confirm password</label>
+        <input  type="password" class="form-control" name="cpass" #cpass="ngModel"  [(ngModel)]="logininfo.cpassword"  required>
+        <div style="color:red" *ngIf="submited && cpass.invalid"> Enter valid email id </div>
+      </div>
+
+
       <div class="form-group text-center">
         <button type="submit" class="btn btn-success" style="padding: 8px 30px;">Register</button>
         <button class="btn btn-danger" style="padding: 8px 30px;margin-left: 10px;">Cancel</button>
