@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngAfterContentChecked(): void {
-    this.show = this.route.snapshot.paramMap.get('id');
+    this.show = this.route.snapshot.paramMap.get('page');
   }
 
   closeMenu():void{

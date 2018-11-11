@@ -14,8 +14,11 @@
   <a (click)="closeMenu()" routerLinkActive="active" routerLink="/home">Logout</a>
 </aside>
 <main>
-    <IVF-ivfcentres *ngIf="show=='ivfCentres'"></IVF-ivfcentres>
+    <IVF-ivfcentres (loader)="isShowLoader($event)"  *ngIf="show=='ivfCentres'"></IVF-ivfcentres>
     <IVF-add-ivf *ngIf="show=='addIVFCentre'"></IVF-add-ivf>
     <IVF-allapplication *ngIf="show=='applications'"></IVF-allapplication>
     <IVF-arcapplication *ngIf="show=='archieved'"></IVF-arcapplication>
 </main>
+
+<div class="loader" *ngIf="showLoader"><div></div>
+</div>

@@ -15,15 +15,21 @@ export class DashboardComponent implements OnInit {
   show:string;
   isMenuOpen:boolean = false;
 
+  showLoader = true
+
   ngOnInit() {
    
   }
 
   ngAfterContentChecked(): void {
-    this.show = this.route.snapshot.paramMap.get('id');
+    this.show = this.route.snapshot.paramMap.get('page');
   }
 
   closeMenu():void{
     this.isMenuOpen=false
+  }
+
+  isShowLoader(evt):void{
+    this.showLoader = evt
   }
 }

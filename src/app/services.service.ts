@@ -1,26 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
 
+class Result{
+  status:boolean; data: any; error:string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
 
   constructor(private http: HttpClient) { }
-  
+  headerOptions = new HttpHeaders({ 'Content-Type':  'application/json'});
 
-  registerCentre(centredetails){
-    
-    var body = JSON.stringify(centredetails);
-    console.log(body)
-    var headerOptions = new HttpHeaders({ 'Content-Type':  'application/json'});
-    
-    return this.http.post("http://192.168.0.103:52970/api/ivf/xyuiasdfbjasdbjhv",body,{
-      headers:headerOptions
-    });
-    // return this.http.post("http://localhost:52970/api/ivf/xyuiasdfbjasdbjhv",body,{
-    //   headers:headerOptions
-    // });
+  
+  getCenter(username:string){
+    return this.http.get<Result>(`http://192.168.0.103:52970/api/ivf/centres/${username}`)
   }
-//{"name":"akil","pancard":"nabf2783e","doctorName":"kjadf agdsfkh","isarNo":"MP-42","address":"svjk gkjasgbkb","landline":"098142756","email":"agbhsa@gsg.in"}
+
+  getAllCentres(){
+    return this.http.get<Result>(`http://192.168.0.103:52970/api/ivf/centres`)
+  }
+
+  registerCentre(authdetail, detail){
+    
+    return this.http.post<Result>("http://192.168.0.103:52970/api/ivf/centres/register",{
+      centre:detail,
+      auth : authdetail
+    },{
+      headers:this.headerOptions
+    });
+  }
+
+  login(username,password){
+    return this.http.post<Result>("http://192.168.0.103:52970/api/ivf/user/authenticate",{
+      username,password
+    },{
+      headers:this.headerOptions
+    });
+  }
+  
 }

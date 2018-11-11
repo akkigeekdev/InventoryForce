@@ -2,17 +2,18 @@
   <span class="title">Search</span>
   <div class="row">
     <div class="col-md-4">
-      <input type="text" class="form-control" placeholder="IVF Name">
+      <input type="text" class="form-control" placeholder="IVF Name" [(ngModel)]="name">
     </div>
     <div class="col-md-4">
-      <input type="text" class="form-control" placeholder="Doctor Name">
+      <input type="text" class="form-control" placeholder="Doctor Name" [(ngModel)]="doctorname">
     </div>
     <div class="col-md-4">
-      <input type="text" class="form-control" placeholder="Doctor ISAR number">
+      <input type="text" class="form-control" placeholder="Doctor ISAR number" [(ngModel)]="isarno">
     </div>
   </div>
   <div class="text-center">
-    <button class="btn btn-dark">search</button>
+    <button class="btn btn-success" (click)="search()">search</button>
+    <button class="btn btn-danger" style="margin-left:10px;" (click)="clear()">clear</button>
   </div>
 </div>
 
@@ -24,6 +25,7 @@
           <table class="table table-bordered ">
               <thead>
                 <tr>
+                  <th scope="col">SrNO</th>
                   <th scope="col">Name</th>
                   <th scope="col">Doctor Name</th>
                   <th scope="col">ISAR No.</th>
@@ -31,28 +33,13 @@
                   <th scope="col">Email</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>Larry the Bird</td>
-                  <td>Larry the Bird</td>
-                  <td>Larry the Bird</td>
-                  <td>Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              <tbody *ngFor="let centre of showing;let i =index">
+                <td>{{page*10 + i + 1}}</td>
+                <td>{{centre.name}}</td>
+                <td>{{centre.doctorname}}</td>
+                <td>{{centre.isarno}}</td>
+                <td>{{centre.landline}}</td>
+                <td>{{centre.email}}</td>
               </tbody>
             </table>
       </div>
@@ -60,11 +47,11 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <span>Showing 1-10 of 100</span>
+      <span>Showing {{page*10 + 1}} - {{page*10 + showing.length}} of {{total}}</span>
         <nav aria-label="Page navigation example">
             <ul class="pagination ">
-              <li class="page-item"><a class="page-link" href="javascript:void(0)">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="javascript:void(0)">Next</a></li>
+              <li class="page-item" [class.disabled]="page==0"><a class="page-link" href="javascript:void(0)" (click)="previous()">Previous</a></li>
+              <li class="page-item" [class.disabled]="page==(pagination.length-1)"><a class="page-link" href="javascript:void(0)" (click)="next()">Next</a></li>
             </ul>
           </nav>
     </div>
