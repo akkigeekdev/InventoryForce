@@ -15,10 +15,8 @@
 <main>
     <!-- <IVF-ivfcentres *ngIf="show=='ivfCentres'"></IVF-ivfcentres>
     <IVF-add-ivf *ngIf="show=='addIVFCentre'"></IVF-add-ivf> -->
-    <IVF-newapplication *ngIf="show=='new'"></IVF-newapplication>
+    <IVF-newapplication (loader)="isShowLoader($event)" *ngIf="show=='new'"></IVF-newapplication>
     <IVF-sentapplication *ngIf="show=='sent'"></IVF-sentapplication>
-    <IVF-settings *ngIf="show=='setting'"></IVF-settings>
+    <IVF-settings (loader)="isShowLoader($event)"  *ngIf="show=='setting'"></IVF-settings>
 </main>
-<div class="loader">
-  <div></div>
-</div>
+<div class="loader" *ngIf="showLoader"> <div></div> </div>

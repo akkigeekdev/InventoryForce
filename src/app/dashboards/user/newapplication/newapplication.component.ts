@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'IVF-newapplication',
@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class NewapplicationComponent implements OnInit {
 
   constructor() { }
+  @Output() loader = new EventEmitter();
 
   ngOnInit() {
+  }
+
+  ngAfterContentInit(): void {
+    this.loader.emit(false)
   }
 
 }

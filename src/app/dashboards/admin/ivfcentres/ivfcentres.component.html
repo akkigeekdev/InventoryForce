@@ -47,7 +47,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <span>Showing {{page*10 + 1}} - {{page*10 + showing.length}} of {{total}}</span>
+      <span>Showing {{total != 0 ?page*10 + 1:0}} - {{page*10 + showing.length}} of {{total}}</span>
         <nav aria-label="Page navigation example">
             <ul class="pagination ">
               <li class="page-item" [class.disabled]="page==0"><a class="page-link" href="javascript:void(0)" (click)="previous()">Previous</a></li>

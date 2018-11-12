@@ -13,18 +13,27 @@ export class ServicesService {
   constructor(private http: HttpClient) { }
   headerOptions = new HttpHeaders({ 'Content-Type':  'application/json'});
 
+  hosturl = "http://192.168.0.103:52970/api/ivf"
   
   getCenter(username:string){
-    return this.http.get<Result>(`http://192.168.0.103:52970/api/ivf/centres/${username}`)
+    return this.http.get<Result>(`${this.hosturl}/centres/${username}`)
   }
 
   getAllCentres(){
-    return this.http.get<Result>(`http://192.168.0.103:52970/api/ivf/centres`)
+    return this.http.get<Result>(`${this.hosturl}/centres`)
   }
+
+  updateCentre(username, detail){
+
+    return this.http.put<Result>(`${this.hosturl}/centres/${username}`,detail,{
+      headers:this.headerOptions
+    })
+  }
+
 
   registerCentre(authdetail, detail){
     
-    return this.http.post<Result>("http://192.168.0.103:52970/api/ivf/centres/register",{
+    return this.http.post<Result>("${this.hosturl}/centres/register",{
       centre:detail,
       auth : authdetail
     },{
@@ -33,7 +42,7 @@ export class ServicesService {
   }
 
   login(username,password){
-    return this.http.post<Result>("http://192.168.0.103:52970/api/ivf/user/authenticate",{
+    return this.http.post<Result>("${this.hosturl}/user/authenticate",{
       username,password
     },{
       headers:this.headerOptions

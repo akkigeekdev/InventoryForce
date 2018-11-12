@@ -16,6 +16,9 @@ export class DashboardComponent implements OnInit {
   isMenuOpen:boolean = false;
 
   showLoader = true
+  isShowLoader(evt):void{
+    this.showLoader = evt
+  }
 
   ngOnInit() {
    
@@ -29,7 +32,5 @@ export class DashboardComponent implements OnInit {
     this.isMenuOpen=false
   }
 
-  isShowLoader(evt):void{
-    this.showLoader = evt
-  }
+  
 }

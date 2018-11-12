@@ -1,9 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ServicesService } from "../../../services.service";
-import { Centre } from "../../../model/Centre";
-
-
-
 
 @Component({
   selector: 'IVF-ivfcentres',
@@ -15,7 +11,7 @@ export class IvfcentresComponent implements OnInit {
   constructor(private api:ServicesService) { }
   @Output() loader = new EventEmitter();
 
-  centres: Centre[] = []
+  centres= []
 
   
   pagination = []
@@ -24,7 +20,7 @@ export class IvfcentresComponent implements OnInit {
   
 
   //Search
-  searchData: Centre[] = []
+  searchData= []
   name = ""
   doctorname = ""
   isarno = ""

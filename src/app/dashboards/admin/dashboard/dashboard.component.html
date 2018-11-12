@@ -15,7 +15,7 @@
 </aside>
 <main>
     <IVF-ivfcentres (loader)="isShowLoader($event)"  *ngIf="show=='ivfCentres'"></IVF-ivfcentres>
-    <IVF-add-ivf *ngIf="show=='addIVFCentre'"></IVF-add-ivf>
+    <IVF-add-ivf (loader)="isShowLoader($event)" *ngIf="show=='addIVFCentre'"></IVF-add-ivf>
     <IVF-allapplication *ngIf="show=='applications'"></IVF-allapplication>
     <IVF-arcapplication *ngIf="show=='archieved'"></IVF-arcapplication>
 </main>

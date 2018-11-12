@@ -95,8 +95,8 @@ export class HomeComponent implements OnInit {
       this.regAuthFormLoading = true;
       this.api.getCenter(this.regauth.username).subscribe(results=>{
         if(results.status){
-          let userdata = JSON.parse(results.data)
-          if(userdata.length > 0){
+          //let userdata = JSON.parse(results.data)
+          if(results.data.length > 0){
             this.regauth.usernameExist = true
           }
           else{
@@ -129,9 +129,8 @@ export class HomeComponent implements OnInit {
             else{
               this.route.navigate(["/ivf/home","new"])
             }
-
+            localStorage.setItem("ivfusername",data[0].USERNAME)
             this.login.hide()
-            
           }
           else{
             swal("Failed","Please check username and password","warning")

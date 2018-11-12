@@ -15,6 +15,11 @@ export class DashboardComponent implements OnInit {
   show:string;
   isMenuOpen:boolean = false;
 
+  showLoader = true
+  isShowLoader(evt):void{
+    this.showLoader = evt
+  }
+
   ngOnInit() {
    
   }

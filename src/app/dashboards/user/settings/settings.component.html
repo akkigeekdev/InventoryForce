@@ -1,24 +1,30 @@
 <div class="contant">
   <span class="title">Edit Information</span>
+
+  <form #updateform="ngForm" (ngSubmit)="onSubmit(updateform.valid)" novalidate autocomplete="off">
+    
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <label for="txtname">IVF centre name</label>
-        <input type="text" name="" id="txtname" class="form-control">
+        <label >IVF centre name</label>
+        <input type="text" class="form-control" [(ngModel)]="details.name" #txtcentrename="ngModel" name="centrename" pattern="^[a-zA-Z\s]+$" required>
+        <div class="error" *ngIf="submited && txtcentrename.invalid">Only letters and spaces are allowed</div>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
-        <label for="txtdocname">Main doctor name</label>
-        <input type="text" name="" id="txtdocname" class="form-control">
+        <label>Main doctor name</label>
+        <input type="text" class="form-control" [(ngModel)]="details.doctorname" #txtdocname="ngModel" name="docname" pattern="^[a-zA-Z\s]+$" required>
+        <div class="error" *ngIf="submited && txtdocname.invalid">Only letters and spaces are allowed</div>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
-        <label for="txtisar">Doctor ISAR number</label>
-        <input type="text" name="" id="txtisar" class="form-control">
+        <label>Doctor ISAR number</label>
+        <input type="text" class="form-control" [(ngModel)]="details.isarno" #txtisar="ngModel" name="isar" pattern="^[0-9A-Z\-]+$" required>
+        <div class="error" *ngIf="submited && txtisar.invalid">Enter valid ISAR no</div>
       </div>
     </div>
   </div>
@@ -26,21 +32,24 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <label for="txtcont">landline no.</label>
-        <input type="text" name="" id="txtcont" class="form-control">
+        <label>landline no.</label>
+        <input type="text" class="form-control" [(ngModel)]="details.landline" #txtlandline="ngModel" name="landline" pattern="^[0-9]+$"  required>
+        <div class="error" *ngIf="submited && txtlandline.invalid">Enter valid number</div>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="form-group">
-        <label for="txtemail">Email</label>
-        <input type="email" name="" id="txtemail" class="form-control">
+        <label>Email</label>
+        <input type="text" class="form-control" [(ngModel)]="details.email" #txtemail="ngModel" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+        <div class="error" *ngIf="submited && txtemail.invalid">Enter valid email id</div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <label for="txtpan">IVF pan card no.</label>
-        <input type="text" name="" id="txtpan" class="form-control">
+        <label>IVF pan card no.</label>
+        <input type="text" class="form-control" [(ngModel)]="details.pan" #txtpan="ngModel" name="pan" pattern="^[a-zA-Z0-9]+$"  required>
+        <div class="error" *ngIf="submited && txtpan.invalid">Only letters and numbers are allowed</div>
       </div>
     </div>
 
@@ -49,8 +58,9 @@
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
-        <label for="txtadd">Address</label>
-        <textarea name="" id="txtadd" rows="3" class="form-control"></textarea>
+        <label>Address</label>
+        <textarea row="5" type="text" class="form-control" [(ngModel)]="details.address" #txtaddress="ngModel" name="address" required></textarea>
+        <div class="error" *ngIf="submited && txtaddress.invalid">Please enter value</div>
       </div>
     </div>
   </div>
@@ -60,4 +70,6 @@
       <button class="btn btn-success">Update</button>
     </div>
   </div>
+
+  </form>
 </div>
